@@ -1,24 +1,19 @@
 # primeiro-projeto
 
-## Project setup
+## Para reconstruir a estrutura do projeto executar:
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Para executar o servidor:
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Para compilar o projeto e colocá-lo em execução:
 ```
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
+### Configurações customizadas:
 See [Configuration Reference](https://cli.vuejs.org/config/).
