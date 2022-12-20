@@ -4,6 +4,10 @@
          v-model="produto.descricao">
         <input type="text" placeholder="Preço" 
          v-model="produto.preco">
+        <select v-model="produto.usuario">
+            <option v-for="(item, id) in usuarios" :key="id" 
+             :value="id">{{ item.nome }}</option>
+        </select>
         <button @click="salvar">Salvar</button>
         <button @click="carregar">
             Obter produtos
@@ -24,9 +28,11 @@
         data(){
             return{
                 produtos:[],
+                usuarios:[],
                 produto:{
                     descricao:'',
-                    preco:''
+                    preco:'',
+                    usuario:''
                 },
                 id:0
             }
@@ -76,10 +82,16 @@
             preencher(id){
                 this.id = id;
                 this.produto = {...this.produtos[id]};
+            },
+            carregaUsuarios(){
+                this.$http.get('usuario.json').then(res=>{
+                    this.usuarios = res.data;
+                })
             }
         },
         created(){
             this.carregar();
+            this.carregaUsuarios();
         }    
     }
 </script>
